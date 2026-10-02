@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kitchen Products</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f3f3f3;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px #aaa;
+    }
+
+    .emoji {
+      font-size: 55px;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    del {
+      color: #777;
+      margin-right: 8px;
+    }
+
+    .discount {
+      color: green;
+      font-weight: bold;
+      display: block;
+      margin: 8px;
+    }
+
+    button {
+      padding: 9px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #ffd814;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffb700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="emoji">🧹</div>
+      <h3>Kitchen Broom</h3>
+      <p class="price"><del>₹300</del> ₹270</p>
+      <span class="discount">-10% OFF</span>
+      <a href="buy.html">
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <div class="emoji">🗑️</div>
+      <h3>Kitchen Dustbin</h3>
+      <p class="price"><del>₹600</del> ₹540</p>
+      <span class="discount">-10% OFF</span>
+         <a href="buy.html">
+           <Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <div class="emoji">🧽</div>
+      <h3>Cleaning Sponge Set</h3>
+      <p class="price"><del>₹200</del> ₹180</p>
+      <span class="discount">-10% OFF</span>
+          <a href="buy.html">
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <div class="emoji">🧴</div>
+      <h3>Soap Dispenser</h3>
+      <p class="price"><del>₹400</del> ₹360</p>
+      <span class="discount">-10% OFF</span>
+                <a href="buy.html">
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <div class="emoji">🧺</div>
+      <h3>Kitchen Basket</h3>
+      <p class="price"><del>₹500</del> ₹450</p>
+      <span class="discount">-10% OFF</span>
+        <a href="buy.html">
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <div class="emoji">💡</div>
+      <h3>Kitchen Light</h3>
+      <p class="price"><del>₹700</del> ₹630</p>
+      <span class="discount">-10% OFF</span>
+      <a href="buy.html">
+      <button>Add to Cart</button>
+    </div>
+
+  </div>
+
+</body>
+</html>

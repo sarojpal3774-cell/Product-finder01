@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    <!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>My Cart</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #e9ffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            background-color: #131921;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cart-item {
+            background-color: white;
+            margin: 15px auto;
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #999;
+        }
+
+        .cart-item h2 {
+            margin-top: 0;
+        }
+
+        .total {
+            background-color: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .total h2 {
+            color: green;
+        }
+
+        button {
+            background-color: #ff9900;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>🛒 My Cart</h1>
+
+<div id="cartItems"></div>
+
+
+<div class="total">
+
+    <h2>
+        Total: ₹<span id="total">0</span>
+    </h2>
+
+    <p>
+        Total Items:
+        <span id="itemCount">0</span>
+    </p>
+
+    <button onclick="clearCart()">
+        Clear Cart
+    </button>
+
+    <br><br>
+
+    <a href="index.html">
+        ← Continue Shopping
+    </a>
+
+</div>
+
+
+<script>
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    function showCart() {
+
+        let cartItems =
+            document.getElementById("cartItems");
+
+        let total = 0;
+
+        let itemCount = 0;
+
+        cartItems.innerHTML = "";
+
+
+        cart.forEach(function(product, index) {
+
+            let productTotal =
+                product.price * product.quantity;
+
+            total += productTotal;
+
+            itemCount += product.quantity;
+
+
+            cartItems.innerHTML += `
+
+                <div class="cart-item">
+
+                    <h2>${product.name}</h2>
+
+                    <p>
+                        Price:
+                        ₹${product.price.toLocaleString("en-IN")}
+                    </p>
+
+                    <p>
+                        Quantity:
+                        ${product.quantity}
+                    </p>
+
+                    <p>
+                        Product Total:
+                        ₹${productTotal.toLocaleString("en-IN")}
+                    </p>
+
+                    <button onclick="increase(${index})">
+                        +
+                    </button>
+
+                    <button onclick="decrease(${index})">
+                        -
+                    </button>
+
+                    <button onclick="removeProduct(${index})">
+                        Remove
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+
+        document.getElementById("total").innerText =
+            total.toLocaleString("en-IN");
+
+        document.getElementById("itemCount").innerText =
+            itemCount;
+
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML =
+                "<h2 style='text-align:center'>Cart is Empty 🛒</h2>";
+
+        }
+
+    }
+
+
+    function increase(index) {
+
+        cart[index].quantity++;
+
+        saveCart();
+
+    }
+
+
+    function decrease(index) {
+
+        if (cart[index].quantity > 1) {
+
+            cart[index].quantity--;
+
+        } else {
+
+            cart.splice(index, 1);
+
+        }
+
+        saveCart();
+
+    }
+
+
+    function removeProduct(index) {
+
+        cart.splice(index, 1);
+
+        saveCart();
+
+    }
+
+
+    function clearCart() {
+
+        cart = [];
+
+        saveCart();
+
+    }
+
+
+    function saveCart() {
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        showCart();
+
+    }
+
+
+    showCart();
+
+</script>
+
+</body>
+</html>
+  </h1>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Laptop</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .product, .buy-box {
+            max-width: 350px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        .image {
+            text-align: center;
+            font-size: 90px;
+            background: #eee;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .old {
+            color: gray;
+            text-decoration: line-through;
+        }
+
+        .offer {
+            color: green;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #ff9900;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Starting me form hidden rahega */
+        .buy-box {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+        <button>
+            🛒 Add to Cart
+        </button>
+
+        <button onclick="showBuyBox()">
+            ⚡ Buy Now
+        </button>
+
+    </div>
+
+
+    <!-- BUY FORM -->
+
+    <div class="buy-box" id="buyBox">
+
+        <h2>🛍️ Enter Details</h2>
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="tel" placeholder="Mobile Number">
+
+        <input type="text" placeholder="Address">
+
+        <input type="text" placeholder="City">
+
+        <button>
+            ✅ Place Order
+        </button>
+
+    </div>
+
+
+    <script>
+        function showBuyBox() {
+            document.getElementById("buyBox").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

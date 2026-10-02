@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Finder</title>
+
+    <style>
+
+        /* ================= CSS ================= */
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background-color: #eeeeee;
+            padding-bottom: 80px;
+        }
+
+
+        /* ================= AUTO BANNER ================= */
+
+        .banner {
+            width: 95%;
+            height: 220px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slide 9s infinite;
+        }
+
+        .slides img {
+            width: 33.333%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            30% {
+                transform: translateX(0);
+            }
+
+            35% {
+                transform: translateX(-33.333%);
+            }
+
+            65% {
+                transform: translateX(-33.333%);
+            }
+
+            70% {
+                transform: translateX(-66.666%);
+            }
+
+            95% {
+                transform: translateX(-66.666%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+        /* ================= IMG BOX ================= */
+
+        .img-box {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+            margin: auto;
+
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+
+        /* ================= CATEGORY ================= */
+
+        .category {
+            min-width: 130px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .category p {
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 12px;
+            white-space: nowrap;
+        }
+
+        .category:hover .img-box {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }
+    
+
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            padding: 20px;
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+        }
+
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .product {
+            text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+
+        /* ================= CART BUTTON ================= */
+
+        .cart {
+            font-size: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+
+        /* ================= AMOUNT ================= */
+
+        .amount {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        /* ================= SUCCESS ================= */
+
+        .success {
+            color: green;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+
+        /* ================= BOTTOM MENU ================= */
+
+        .bottom-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: space-around;
+
+            padding: 10px 0;
+
+            background: white;
+
+            box-shadow: 0 -2px 8px #aaaaaa;
+        }
+
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-icon {
+            font-size: 25px;
+        }
+
+        .menu-item p {
+            margin: 3px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- ================= HTML ================= -->
+
+    <h1>Product Finder</h1>
+    
+    <a href="chkh.html">JavaScript File</a>
+    
+
+    <a href="login.html">
+        Login
+    </a>
+
+    &nbsp;&nbsp;
+
+    <a href="about.html">
+        About
+    </a>
+
+    <br><br>
+
+    <input type="text" placeholder="Search">
+    <input type="time">
+
+
+    <!-- ================= AUTO BANNER ================= -->
+
+    <div class="banner">
+
+        <div class="slides">
+
+            <img src="cloth.jpg">
+
+            <img src="cloth1.jpg">
+
+            <img src="cloth2.jpg">
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <h2>Products</h2>
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product">
+
+           
+
+                <div class="img-box">
+                    💻
+                </div>
+
+            </a>
+
+             <a href="payment.html">
+
+                <button class="cart">
+                    Add to Cart
+                </button>
+
+            </a>
+
+            <p class="amount">
+                ₹32,999
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product">
+
+            <a href="gta.html">
+                
+                <div class="img-box">
+                    📱
+                </div>
+
+            </a>
+
+            <a href="buy.html">
+
+                <button class="cart">
+                    Add to Cart
+                </button>
+
+            </a>
+
+            <p class="amount">
+                ₹15,000
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SESSIONS ================= -->
+
+    <h2>Sessions</h2>
+
+    <div class="categories">
+
+
+        <!-- BOYS -->
+
+        <div class="category">
+
+            <a href="boys.html">
+
+                <div class="img-box">
+                    👨‍💼
+                </div>
+
+            </a>
+
+            <p>
+                Boys Clothes
+            </p>
+
+        </div>
+
+
+        <!-- KITCHEN -->
+
+        <div class="category">
+
+            <a href="kitchen.html">
+
+                <div class="img-box">
+                    🍎
+                </div>
+
+            </a>
+
+            <p>
+                Kitchen
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="category">
+
+            <a href="index.html">
+
+                <div class="img-box">
+                    💻
+                </div>
+
+            </a>
+
+            <p>
+                Products
+            </p>
+
+        </div>
+
+
+        <!-- 10% OFF -->
+
+        <div class="category">
+
+            <a href="-10off.html">
+
+                <div class="img-box">
+                    🏷️
+                </div>
+
+            </a>
+
+            <p>
+                10% Off
+            </p>
+
+        </div>
+
+
+        <!-- ELECTRONICS -->
+
+        <div class="category">
+
+            <a href="index.html">
+
+                <div class="img-box">
+                    🛒
+                </div>
+
+            </a>
+
+            <p>
+                Electronics
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BOTTOM MENU ================= -->
+
+    <div class="bottom-menu">
+
+
+        <!-- HOME -->
+
+        <div class="menu-item">
+
+            <a href="login.html">
+
+                <span class="menu-icon">
+                    🏠
+                </span>
+
+            </a>
+
+            <p>
+                Home
+            </p>
+
+        </div>
+
+
+        <!-- CART -->
+
+        <div class="menu-item">
+
+            <a href="cart.html">
+
+                <span class="menu-icon">
+                    🛒
+                </span>
+
+            </a>
+
+            <p>
+                Cart
+            </p>
+
+        </div>
+
+
+        <!-- BUY -->
+
+        <div class="menu-item">
+
+            <a href="buy.html">
+
+                <span class="menu-icon">
+                    👤
+                </span>
+
+            </a>
+
+            <p>
+                Buy
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ORDER BUTTONS ================= -->
+
+    <button onclick="placeOrder(this)">
+        ✅ Place Order
+    </button>
+
+    <button onclick="placeOrder(this)">
+        ✅ Place Order
+    </button>
+
+    <button onclick="placeOrder(this)">
+        ✅ Place Order
+    </button>
+
+
+    <script>
+
+        function placeOrder(button) {
+
+            button.parentElement.innerHTML +=
+                '<p class="success">🎉 Your Order Has Been Placed! ✅</p>';
+
+        }
+
+    </script>
+
+</body>
+</html>

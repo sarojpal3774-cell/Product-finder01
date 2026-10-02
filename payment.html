@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Debit Card Payment</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#eef1f5;
+}
+
+.payment-box{
+    width:90%;
+    max-width:450px;
+    margin:40px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #aaa;
+}
+
+h1{
+    text-align:center;
+}
+
+.amount{
+    text-align:center;
+    background:#f1f3f6;
+    padding:15px;
+    border-radius:10px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    background:#ff9900;
+    border:0;
+   border-radius:8px ;
+    font-size:18px;
+    font-weight:bold;
+}
+
+#success{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    text-align:center;
+    background:#dff7df;
+    color:green;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="payment-box">
+
+<h1>💳 Debit Card</h1>
+
+<div class="amount">
+Total: ₹20,000
+</div>
+
+<label>Card Number</label>
+<input type="text" placeholder="XXXX XXXX XXXX XXXX">
+
+<label>Card Holder Name</label>
+<input type="text" placeholder="Your Name">
+
+<label>Expiry Date</label>
+<input type="text" placeholder="MM/YY">
+
+<label>CVV</label>
+<input type="password" placeholder="XXX">
+
+<button onclick="pay()">
+Pay ₹20,000
+</button>
+
+<div id="success">
+    <h2>🎉 Payment Successful!</h2>
+    <p>Demo payment completed ✅</p>
+</div>
+
+</div>
+
+<script>
+function pay(){
+
+    document.getElementById("success").style.display="block";
+
+}
+</script>
+
+</body>
+</html>

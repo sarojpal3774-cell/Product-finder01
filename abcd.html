@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hero Login</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#030407;
+    color:white;
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 50% 45%,#551018 0%,#16070a 28%,#030407 65%);
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    opacity:.15;
+    background-image:
+    linear-gradient(#777 1px,transparent 1px),
+    linear-gradient(90deg,#777 1px,transparent 1px);
+    background-size:60px 60px;
+    transform:perspective(500px) rotateX(55deg) scale(1.5);
+    transform-origin:center bottom;
+}
+
+/* TOP */
+.top{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:75px;
+    padding:0 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #292929;
+    z-index:5;
+}
+
+.logoText{
+    font-weight:bold;
+    letter-spacing:5px;
+    font-size:18px;
+}
+
+.status{
+    color:#00ffb3;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+/* HERO */
+.hero{
+    position:absolute;
+    inset:75px 0 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* SUIT */
+.suit{
+    position:relative;
+    width:300px;
+    height:650px;
+    filter:drop-shadow(0 25px 35px #000);
+}
+
+/* HEAD */
+.head{
+    position:absolute;
+    width:190px;
+    height:210px;
+    left:55px;
+    top:5px;
+    border-radius:48% 48% 45% 45%;
+    background:
+    radial-gradient(circle at 35% 25%,#ff6870,#bd1722 28%,#4c050b 75%);
+    box-shadow:
+    inset -25px -30px 35px #190104,
+    inset 15px 10px 20px #ff4b55,
+    0 15px 40px #000;
+    z-index:4;
+}
+
+/* MASK WEB LINES */
+.head:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:
+    repeating-radial-gradient(
+        ellipse at center,
+        transparent 0 18px,
+        #050505 19px 21px,
+        transparent 22px 31px
+    );
+    opacity:.8;
+}
+
+.head:after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:100%;
+    background:#090909;
+    left:50%;
+    top:0;
+    opacity:.7;
+}
+
+/* EYES */
+.eye{
+    position:absolute;
+    width:62px;
+    height:88px;
+    top:65px;
+    background:linear-gradient(135deg,#fff,#b9eaff);
+    border:5px solid #080808;
+    box-shadow:0 0 15px #fff8;
+    z-index:5;
+}
+
+.eye.left{
+    left:17px;
+    transform:skew(-12deg) rotate(8deg);
+    clip-path:polygon(0 5%,100% 0,72% 100%,20% 82%);
+}
+
+.eye.right{
+    right:17px;
+    transform:skew(12deg) rotate(-8deg);
+    clip-path:polygon(0 0,100% 5%,80% 82%,28% 100%);
+}
+
+/* BODY */
+.body{
+    position:absolute;
+    top:185px;
+    left:25px;
+    width:250px;
+    height:310px;
+    border-radius:45px 45px 30px 30px;
+    background:
+    radial-gradient(circle at 50% 25%,#f5323d,#a50d17 42%,#380207 100%);
+    box-shadow:
+    inset -35px -20px 40px #170105,
+    inset 25px 15px 30px #ff4650,
+    0 20px 35px #000;
+    z-index:3;
+}
+
+/* BODY WEB */
+.body:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:
+    repeating-radial-gradient(
+        ellipse at 50% 20%,
+        transparent 0 30px,
+        #070707 31px 33px,
+        transparent 34px 48px
+    );
+    opacity:.75;
+}
+
+/* CHEST LOGO */
+.chest{
+    position:absolute;
+    width:82px;
+    height:100px;
+    left:84px;
+    top:48px;
+    z-index:8;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.chest:hover{
+    transform:scale(1.12);
+}
+
+.chest span{
+    position:absolute;
+    background:#050505;
+    border-radius:5px;
+    box-shadow:0 0 7px #000;
+}
+
+.s1{
+    width:14px;
+    height:72px;
+    left:34px;
+    top:15px;
+}
+
+.s2,.s3{
+    width:12px;
+    height:50px;
+    top:35px;
+}
+
+.s2{
+    left:14px;
+    transform:rotate(45deg);
+}
+
+.s3{
+    right:14px;
+    transform:rotate(-45deg);
+}
+
+.s4,.s5,.s6,.s7{
+    width:11px;
+    height:42px;
+    top:48px;
+}
+
+.s4{left:4px;transform:rotate(65deg)}
+.s5{left:24px;transform:rotate(25deg)}
+.s6{right:24px;transform:rotate(-25deg)}
+.s7{right:4px;transform:rotate(-65deg)}
+
+.tap{
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    color:#00ffb3;
+    font-size:10px;
+    letter-spacing:3px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.35}
+}
+
+/* ARMS */
+.arm{
+    position:absolute;
+    width:80px;
+    height:300px;
+    top:190px;
+    background:linear-gradient(90deg,#2b0307,#b71320,#3b0308);
+    border-radius:45px;
+    z-index:2;
+    box-shadow:inset 10px 0 20px #ed303944;
+}
+
+.arm.left{
+    left:-35px;
+    transform:rotate(12deg);
+}
+
+.arm.right{
+    right:-35px;
+    transform:rotate(-12deg);
+}
+
+/* LEGS */
+.leg{
+    position:absolute;
+    top:455px;
+    width:95px;
+    height:190px;
+    background:linear-gradient(90deg,#260206,#a80f19,#300207);
+    border-radius:20px 20px 35px 35px;
+    box-shadow:inset 15px 0 20px #ed263544;
+    z-index:1;
+}
+
+.leg.left{left:48px}
+.leg.right{right:48px}
+
+/* LOGIN */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    backdrop-filter:blur(12px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:20;
+}
+
+.login{
+    width:350px;
+    padding:35px;
+    background:#080a0f;
+    border:1px solid #00ffb3;
+    box-shadow:0 0 50px #00ffb333;
+    position:relative;
+}
+
+.login h2{
+    color:#00ffb3;
+    letter-spacing:4px;
+    margin-bottom:8px;
+}
+
+.login p{
+    color:#777;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:7px 0;
+    background:#030407;
+    border:1px solid #333;
+    color:white;
+    outline:none;
+}
+
+input:focus{
+    border-color:#00ffb3;
+}
+
+button{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:0;
+    background:#00ffb3;
+    color:#00150e;
+    font-weight:bold;
+    cursor:pointer;
+    letter-spacing:2px;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:12px;
+    font-size:25px;
+    color:#ff3340;
+    cursor:pointer;
+}
+
+.msg{
+    margin-top:15px;
+    font-size:12px;
+    color:#00ffb3;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+    <div class="grid"></div>
+</div>
+
+<header class="top">
+    <div class="logoText">WEB // CORE</div>
+    <div class="status">● SYSTEM ONLINE</div>
+</header>
+
+<div class="hero">
+
+    <div class="suit">
+
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+
+        <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+        </div>
+
+        <div class="body">
+
+            <div class="chest" onclick="openLogin()">
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+                <span class="s4"></span>
+                <span class="s5"></span>
+                <span class="s6"></span>
+                <span class="s7"></span>
+            </div>
+
+        </div>
+
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+
+    </div>
+
+</div>
+
+<div class="tap">
+    TAP THE CHEST EMBLEM
+</div>
+
+
+<!-- LOGIN POPUP -->
+
+<div class="overlay" id="overlay">
+
+    <div class="login">
+
+        <div class="close" onclick="closeLogin()">×</div>
+
+        <h2>LOGIN</h2>
+
+        <p>ENTER YOUR WEB CORE IDENTITY</p>
+
+        <input
+            id="email"
+            type="email"
+            placeholder="EMAIL"
+        >
+
+        <input
+            id="password"
+            type="password"
+            placeholder="PASSWORD"
+        >
+
+        <button onclick="login()">
+            LOGIN →
+        </button>
+
+        <div class="msg" id="msg"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openLogin(){
+
+    document.getElementById("overlay").style.display = "flex";
+
+}
+
+
+function closeLogin(){
+
+    document.getElementById("overlay").style.display = "none";
+
+}
+
+
+function login(){
+
+    let email =
+        document.getElementById("email").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    let msg =
+        document.getElementById("msg");
+
+
+    if(email === "" || password === ""){
+
+        msg.style.color = "#ff3340";
+
+        msg.innerText =
+            "Please enter email and password.";
+
+        return;
+    }
+
+
+    msg.style.color = "#00ffb3";
+
+    msg.innerText =
+        "LOGIN SUCCESS ✓";
+
+
+    /* OPEN AUUSAU.HTML */
+
+    setTimeout(function(){
+
+        window.location.href = "index.html";
+
+    },700);
+
+}
+
+
+/* TAP OUTSIDE TO CLOSE */
+
+document.getElementById("overlay")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+
+        closeLogin();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+
+File structure ऐसे रखो:
+
+📁 Your Website
+│
+├── hero-login.html   ← ऊपर वाला code
+└── auusau.html       ← तुम्हारी main website
+
+फिर Chest → Login → email/password → LOGIN → "auusau.html" खुलेगा।
